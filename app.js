@@ -34,7 +34,8 @@ var storage = multer.diskStorage({
   },
   filename: function (request, file, callback) {
     console.log(file);
-    callback(null, Date.now() + '-' + file.originalname);
+    var key = file.originalname;
+    callback(null, Date.now() + '_' + key.replace(/\s+/g,"_"));
   }
 });
 
